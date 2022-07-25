@@ -1,35 +1,31 @@
-import time
 SALIDA = "SALIR"
 
 
-def pregutar(product):
-    producto = input("Introduce un producto: [{}] para salir: ".format(SALIDA))
-    return producto
+def pregutar():
+    return input("Introduce un producto: [{}] para salir: ".format(SALIDA))
 
 
-def archivo(lista):
-    name = input("Como quieres que se llame el archivo .txt: ")
-    a = open(name, "w")
-    a.write("\n".join(lista))
-    a.close()
-    return a
+def guardar_a_lista(lista_compra, item_a_guardar):
+    if item_a_guardar.capitalize() in [a.capitalize() for a in lista_compra]:
+        print("El producto ya existe")
+    else:
+        lista_compra.append(item_a_guardar)
+
+
+def archivo(lista_compra):
+    name = input("Como quieres que se llame el archivo: ")
+    with open(name + ".txt", "w") as doc:
+        doc.write("\n".join(lista_compra))
 
 
 def main():
-    lista_compra = ["Pan", "Leche", "Galletas", "Arroz", "Pollo", "Cebolla"]
-    print("La lista de productos que puedes comprar:\n{}".format("\n".join(lista_compra)))
-    lista_compra_user = []
-    input_user = pregutar(product=lista_compra)
+    lista_compra = []
+    input_user = pregutar()
     while input_user != SALIDA:
-        if input_user in lista_compra:
-            lista_compra_user.append(input_user)
-            print("Tu lista de la compra es:\n{}".format("\n".join(lista_compra_user)))
-            input_user = pregutar(product=lista_compra)
-        else:
-            print("No esta en nuestra lista principal")
-            print("La lista de productos que puedes comprar:\n{}".format("\n".join(lista_compra)))
-            input_user = pregutar(product=lista_compra)
-    crear_archivo = archivo(lista=lista_compra)
+        guardar_a_lista(lista_compra, input_user)
+        print("Tu lista de la compra es:\n{}".format("\n".join(lista_compra).capitalize()))
+        input_user = pregutar()
+    archivo(lista_compra)
 
 
 if __name__ == "__main__":
