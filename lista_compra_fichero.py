@@ -18,10 +18,11 @@ def archivo(lista_compra):
         doc.write("\n".join(lista_compra))
 
 
-def main():
+def cargar_archivo_compra():
     lista_compra = []
     cargarlista = input("¿Quieres recuperar la lista de la compra [S/N]? ")
     if cargarlista == "S" or cargarlista == "s":
+        # Gestion de excepciones
         try:
             with open(ARCHIVO + ".txt", "r") as doc:
                 lista_compra = doc.read().split("\n")
@@ -29,10 +30,20 @@ def main():
             print("No se ha encontrado el archivo")
     else:
         pass
+    return lista_compra
+
+
+def mostra_lista(lista_compra):
+    print("Tu lista de la compra es:\n{}".format("\n".join(lista_compra)))
+
+
+def main():
+    lista_compra = cargar_archivo_compra()
+    mostra_lista(lista_compra)
     input_user = pregutar()
     while input_user != SALIDA:
         guardar_a_lista(lista_compra, input_user)
-        print("Tu lista de la compra es:\n{}".format("\n".join(lista_compra)))
+        mostra_lista(lista_compra)
         input_user = pregutar()
     archivo(lista_compra)
 

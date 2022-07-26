@@ -1,4 +1,7 @@
 pan
-sal
-arroz
 leche
+galletas
+arroz
+pollo
+cebollas
+ajos
