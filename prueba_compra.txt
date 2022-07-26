@@ -1,10 +1,4 @@
 pan
+sal
+arroz
 leche
-galletas
-melon
-sandia
-peras
-manzanas
-pollo
-cebollas
-ajos
