@@ -24,8 +24,8 @@ def get_chrome_data(user_path):
             con.close()
             return urls
         except sqlite3.OperationalError:
-            print("La base de datos esta bloqueada, reintentando en 5 segundos")
-            time.sleep(5)
+            print("La base de datos esta bloqueada, reintentando en 2 segundos")
+            time.sleep(2)
 
 
 def get_chrome_downloads(user_path):
