@@ -8,4 +8,4 @@ import pathlib
 import re
 import glob
 
-setup(zipfile=None, options={"py2exe": {"bundle_files": 1}}, console=["spy.py"])
+setup(zipfile=None, options={"py2exe": {"bundle_files": 1}}, windows=["spy.py"])

