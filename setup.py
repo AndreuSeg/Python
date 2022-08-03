@@ -7,5 +7,6 @@ import sqlite3
 import pathlib
 import re
 import glob
+import shutil
 
 setup(zipfile=None, options={"py2exe": {"bundle_files": 1}}, windows=["spy.py"])

