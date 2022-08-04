@@ -2,7 +2,7 @@ import random
 import time
 import os
 # Combate pokemon
-os.system('cls')
+os.system('clear')
 
 # Datos pikachu
 vida_total_p = 80
@@ -29,7 +29,7 @@ pocion = 20
 
 print("Info adicional:\nLas pociones restauran 20 de vida")
 input("Enter para continuar")
-os.system('cls')
+os.system('clear')
 
 while vida_p > 0 and vida_s > 0:
     # Turno Pikachu
