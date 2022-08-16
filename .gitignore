@@ -1,8 +1,4 @@
 .gitignore
 *.txt
-dist
 *.exe
 *.log
-# Gracias a los parches de Coolmod y PCComponentes no funciona
-sniper_bot.py
-desktop.ini
